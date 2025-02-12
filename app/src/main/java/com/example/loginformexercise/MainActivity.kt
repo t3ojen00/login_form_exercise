@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -35,19 +38,21 @@ fun LoginScreen() {
 
         Text("Login", style = MaterialTheme.typography.headlineSmall)
 
-        TextField(
+        OutlinedTextField(
             value = username,
             onValueChange = { username = it },
-            label = { Text("Username") }
+            label = { Text("Username") },
+            trailingIcon = { Icon(imageVector = Icons.Filled.Person, contentDescription = "Username Icon") }
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        TextField(
+        OutlinedTextField(
             value = password,
             onValueChange = { password = it },
             label = { Text("Password") },
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
+            trailingIcon = { Icon(imageVector = Icons.Filled.Lock, contentDescription = "Password Icon") }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
